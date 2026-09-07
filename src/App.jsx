@@ -15,6 +15,7 @@ import Hero from './components/Hero'
 import TripCard from './components/TripCard'
 import WeatherCard from './components/WeatherCard'
 import ActivityCard from './components/ActivityCard'
+import TripPlanner from './components/TripPlanner'
 
 import { getWeather } from './services/weatherApi'
 //adds weather api functionality to the app.
@@ -24,12 +25,25 @@ function App() {
   const [weather, setWeather] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-
+  
+  const [activities, setActivities] = useState([
+    {
+      id: 1,
+      name: 'Shibuya Crossing',
+      date: 'October 12',
+      time: '3:00 PM',
+    },
+    {
+      id: 2,
+      name: 'TeamLab Borderless',
+      date: 'October 13',
+      time: '11:00 AM',
+    },
+  ])
   async function handleSearch(searchDestination) {
   setDestination(searchDestination)
   setLoading(true)
   setError('')
-
   try {
     const weatherData = await getWeather(searchDestination)
     setWeather(weatherData)
@@ -40,38 +54,53 @@ function App() {
     setLoading(false)
   }
 }
+  
+  function addActivity(activity) {
+  setActivities((currentActivities) => [
+    ...currentActivities,
+    {
+      ...activity,
+      id: Date.now(),
+    },
+  ])
+}
+
+function removeActivity(id) {
+  setActivities((currentActivities) =>
+    currentActivities.filter((activity) => activity.id !== id)
+  )
+}
+//React specifically recommends replacing the array 
+// with a new one instead of mutating state directly
+
+  
 
   return (
-    <div className="app">
+    <>
       <Navbar />
 
-      <main>
+      
         <Hero onSearch={handleSearch} />
 
-        <section className="dashboard" id="dashboard">
-          <div className="section-heading">
-            <div>
-              <p className="section-label">YOUR DASHBOARD</p>
-              <h2>Ready for your next adventure?</h2>
-            </div>
-
-            <button className="secondary-button">
-              View all trips
-            </button>
-          </div>
-
-          <div className="dashboard-grid">
+        <main className="dashboard">
                 <TripCard
               destination={destination}
               dates="October 12 - October 20"
               daysAway="28"
             />
-            <WeatherCard weather={weather} loading={loading} error={error}  />
+            <WeatherCard 
+            weather={weather} 
+            loading={loading} 
+            error={error}  />
             <ActivityCard />
-          </div>
-        </section>
-      </main>
-    </div>
+            </main>
+            <TripPlanner
+              activities={activities}
+              onAddActivity={addActivity}
+              onRemoveActivity={removeActivity}
+            />
+         </>
+         
   )
 }
 
