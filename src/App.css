@@ -121,6 +121,30 @@
   cursor: pointer;
   font: inherit;
 }
+.search-form {
+  display: flex;
+  max-width: 520px;
+  margin-top: 28px;
+}
+
+.search-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  outline: none;
+  font: inherit;
+}
+
+.search-form input::placeholder {
+  color: #8a9198;
+}
+
+.search-form .primary-button {
+  margin: 0;
+  border-radius: 0 6px 6px 0;
+}
 
 .primary-button {
   padding: 13px 22px;
