@@ -80,7 +80,14 @@ function TripPlanner({ activities, onAddActivity, onRemoveActivity }) {
             No activities planned yet. Add something to your itinerary.
           </p>
         ) : (
-          activities.map((activity) => ( //Rendering the itinerary
+          [...activities] //sorted version of activities
+          .sort((a, b) => {
+            const dateA = new Date(`${a.date} ${a.time}`)
+            const dateB = new Date(`${b.date} ${b.time}`)
+
+            return dateA - dateB
+          }).map((activity) => ( 
+            //Rendering the itinerary
             <div className="itinerary-item" key={activity.id}>
               <div>
                 <h3>{activity.name}</h3>
