@@ -6,7 +6,18 @@
 const GEOCODING_URL = 'https://geocoding-api.open-meteo.com/v1/search'
 const WEATHER_URL = 'https://api.open-meteo.com/v1/forecast'
 
+function getWeatherDescription(code) {
+  if (code === 0) return 'Clear sky'
+  if ([1, 2, 3].includes(code)) return 'Partly cloudy'
+  if ([45, 48].includes(code)) return 'Foggy'
+  if ([51, 53, 55].includes(code)) return 'Drizzle'
+  if ([61, 63, 65].includes(code)) return 'Rain'
+  if ([71, 73, 75].includes(code)) return 'Snow'
+  if ([80, 81, 82].includes(code)) return 'Rain showers'
+  if ([95, 96, 99].includes(code)) return 'Thunderstorm'
 
+  return 'Unknown conditions'
+}
 export async function getWeather(destination) {
   const locationResponse = await fetch(
     //using fetch to make http requests 
@@ -42,6 +53,7 @@ export async function getWeather(destination) {
     temperature: Math.round(weatherData.current.temperature_2m),
     humidity: weatherData.current.relative_humidity_2m,
     weatherCode: weatherData.current.weather_code,
+    description: getWeatherDescription(weatherData.current.weather_code),
   }
 }
 

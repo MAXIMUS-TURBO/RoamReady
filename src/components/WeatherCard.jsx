@@ -49,7 +49,7 @@ function WeatherCard({ weather, loading, error }) {
       </div>
 
       <p className="weather-description">
-         Current conditions
+        {weather.description}
       </p>
 
       <div className="weather-details">
