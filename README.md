@@ -37,24 +37,3 @@ The user will be able to:
          API           API         Data
 
   
-Final project: 
-A travel command center built with React, JavaScript, PHP, REST APIs, and Git.
-
-Features
-
-* Destination weather search
-* Trip creation and saved trips
-* Interactive itinerary planner
-* Add/remove activities
-* PHP REST API
-* JSON-based trip storage
-* API error handling
-
-Tech Stack
-* React
-* JavaScript
-* PHP
-* REST APIs
-* JSON
-* Git/GitHub
-* Vite
