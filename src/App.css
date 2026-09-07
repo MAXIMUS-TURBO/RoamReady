@@ -299,16 +299,6 @@
 
 /* Responsive */
 
-@media (max-width: 900px) {
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .card {
-    min-height: auto;
-  }
-}
-
 @media (max-width: 650px) {
   .navbar {
     padding: 0 5%;
@@ -334,4 +324,123 @@
     align-items: start;
     flex-direction: column;
   }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: auto;
+  }
+  .planner-form {
+  grid-template-columns: 1fr;
+}
+
+.section-heading {
+  align-items: flex-start;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.itinerary-item {
+  align-items: flex-start;
+  gap: 16px;
+}
+}
+
+
+.trip-planner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  margin: 4px 0 0;
+  font-size: 28px;
+}
+
+.section-heading > span {
+  color: #6f767d;
+  font-size: 14px;
+}
+
+.planner-form {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.planner-form input {
+  padding: 13px 14px;
+  border: 1px solid #d8dde1;
+  border-radius: 6px;
+  font: inherit;
+  background: white;
+}
+
+.planner-form input:focus {
+  outline: 2px solid #1f6f8b;
+  border-color: transparent;
+}
+
+.planner-form .primary-button {
+  margin: 0;
+}
+
+.itinerary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.itinerary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  background: white;
+  border: 1px solid #e1e5e8;
+  border-radius: 8px;
+}
+
+.itinerary-item h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+}
+
+.itinerary-item p {
+  margin: 0;
+  color: #6f767d;
+  font-size: 14px;
+}
+
+.remove-button {
+  padding: 8px 12px;
+  border: 1px solid #d8dde1;
+  border-radius: 6px;
+  background: white;
+  color: #6f767d;
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  background: #f5f6f7;
+}
+
+.empty-state {
+  padding: 30px;
+  text-align: center;
+  color: #6f767d;
+  background: white;
+  border: 1px dashed #d8dde1;
+  border-radius: 8px;
 }
