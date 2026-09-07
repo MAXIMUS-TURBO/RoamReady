@@ -8,7 +8,8 @@
 // This makes the code more modular and easier to maintain.
 
 import './App.css'
-import { useState } from 'react' //implement search functionality
+// import { useState } from 'react' //implement search functionality
+import { useState, useEffect } from 'react'
 
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -18,6 +19,8 @@ import ActivityCard from './components/ActivityCard'
 import TripPlanner from './components/TripPlanner'
 
 import { getWeather } from './services/weatherApi'
+import { getTrips } from './services/tripApi'
+
 //adds weather api functionality to the app.
 
 function App() {
@@ -25,6 +28,7 @@ function App() {
   const [weather, setWeather] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [trips, setTrips] = useState([])
   
   const [activities, setActivities] = useState([
     {
@@ -74,6 +78,16 @@ function removeActivity(id) {
 // with a new one instead of mutating state directly
 
   
+useEffect(() => {
+  getTrips()
+    .then((trips) => {
+      console.log('Trips from PHP:', trips)
+      setTrips(trips)
+    })
+    .catch((error) => {
+      console.error('Trip API error:', error)
+    })
+}, [])
 
   return (
     <>
@@ -99,6 +113,19 @@ function removeActivity(id) {
               onAddActivity={addActivity}
               onRemoveActivity={removeActivity}
             />
+
+            <section className="saved-trips">
+            <h2>Saved Trips</h2>
+
+            {trips.map((trip) => (
+              <div className="saved-trip" key={trip.id}>
+                <h3>{trip.destination}</h3>
+                <p>
+                  {trip.startDate} → {trip.endDate}
+                </p>
+              </div>
+            ))}
+            </section>
          </>
          
   )
