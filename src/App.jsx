@@ -127,7 +127,9 @@ async function handleCreateTrip(trip) {
               onAddActivity={addActivity}
               onRemoveActivity={removeActivity}
             />
-            <TripForm onCreateTrip={handleCreateTrip} />
+            <TripForm onCreateTrip={handleCreateTrip}  
+            error={tripFormError}
+            />
             <section className="saved-trips">
             <h2>Saved Trips</h2>
 

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function TripForm({ onCreateTrip }) {
+function TripForm({ onCreateTrip, error }) {
   const [form, setForm] = useState({
     destination: '',
     startDate: '',
@@ -66,6 +66,7 @@ function TripForm({ onCreateTrip }) {
           Save Trip
         </button>
       </form>
+      {error && <p className="form-error">{error}</p>}
     </section>
   )
 }

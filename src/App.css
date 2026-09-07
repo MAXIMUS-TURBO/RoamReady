@@ -444,3 +444,8 @@
   border: 1px dashed #d8dde1;
   border-radius: 8px;
 }
+.form-error {
+  margin-top: 12px;
+  color: #b42318;
+  font-size: 14px;
+}
