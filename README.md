@@ -1,16 +1,39 @@
-# React + Vite
+# RoamReady
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+RoamReady is a personal portfolio project designed to explore modern web development, API integration, backend development, and cross-platform application development.
 
-Currently, two official plugins are available:
+The project was created to demonstrate publicly shareable development skills and does not contain proprietary code, data, or materials from academic or professional projects.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Project Goals
 
-## React Compiler
+* Build a responsive web application using React
+* Develop REST API integrations
+* Explore PHP backend development
+* Integrate WordPress as a content management system
+* Experiment with cross-platform mobile development
+* Practice Git/GitHub version control and software documentation
+* Explore Vue through a separate administrative interface
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## RoamReady MVP
 
-## Expanding the ESLint configuration
+The user will be able to:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Search for a destination
+* See current weather
+* See basic destination information
+* Save a destination to a trip
+* Create a simple itinerary
+* View their trip on a dashboard
+* Use the site on desktop or mobile
+
+                    ROAMREADY
+                       │
+                       ▼
+                React Web App
+                       │
+          ┌────────────┼────────────┐
+          ▼            ▼            ▼
+       Weather      Destinations   Trips
+         API           API         Data
+
+  
