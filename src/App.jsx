@@ -17,9 +17,10 @@ import TripCard from './components/TripCard'
 import WeatherCard from './components/WeatherCard'
 import ActivityCard from './components/ActivityCard'
 import TripPlanner from './components/TripPlanner'
+import TripForm from './components/TripForm'
 
 import { getWeather } from './services/weatherApi'
-import { getTrips } from './services/tripApi'
+import { getTrips, createTrip } from './services/tripApi'
 
 //adds weather api functionality to the app.
 
@@ -29,6 +30,7 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [trips, setTrips] = useState([])
+  const [tripFormError, setTripFormError] = useState('')
   
   const [activities, setActivities] = useState([
     {
@@ -89,6 +91,18 @@ useEffect(() => {
     })
 }, [])
 
+async function handleCreateTrip(trip) {
+  try {
+    setTripFormError('')
+
+    const newTrip = await createTrip(trip)
+
+    setTrips((currentTrips) => [...currentTrips, newTrip])
+  } catch (error) {
+    setTripFormError(error.message)
+  }
+}
+
   return (
     <>
       <Navbar />
@@ -113,7 +127,7 @@ useEffect(() => {
               onAddActivity={addActivity}
               onRemoveActivity={removeActivity}
             />
-
+            <TripForm onCreateTrip={handleCreateTrip} />
             <section className="saved-trips">
             <h2>Saved Trips</h2>
 

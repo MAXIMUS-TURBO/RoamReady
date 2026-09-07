@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "destination": "Tokyo, Japan",
+        "startDate": "2026-10-12",
+        "endDate": "2026-10-20"
+    },
+    {
+        "id": 2,
+        "destination": "Paris, France",
+        "startDate": "2027-03-15",
+        "endDate": "2027-03-22"
+    },
+    {
+        "id": 3,
+        "destination": "London",
+        "startDate": "2026-09-13",
+        "endDate": "2026-10-07"
+    },
+    {
+        "id": 4,
+        "destination": "Helsinki",
+        "startDate": "2026-07-13",
+        "endDate": "2026-08-13"
+    }
+]

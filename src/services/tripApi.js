@@ -11,3 +11,19 @@ export async function getTrips() {
 
   return response.json()
 }
+export async function createTrip(trip) {
+  const response = await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(trip),
+  })
+
+  if (!response.ok) {
+    const errorData = await response.json()
+    throw new Error(errorData.error || 'Unable to create trip')
+  }
+
+  return response.json()
+}
